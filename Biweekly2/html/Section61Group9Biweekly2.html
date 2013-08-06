@@ -1,0 +1,422 @@
+
+<!DOCTYPE html
+  PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
+<html><head>
+      <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+   <!--
+This HTML was auto-generated from MATLAB code.
+To make changes, update the MATLAB code and republish this document.
+      --><title>Section61Group9Biweekly2</title><meta name="generator" content="MATLAB 8.1"><link rel="schema.DC" href="http://purl.org/dc/elements/1.1/"><meta name="DC.date" content="2013-07-18"><meta name="DC.source" content="Section61Group9Biweekly2.m"><style type="text/css">
+html,body,div,span,applet,object,iframe,h1,h2,h3,h4,h5,h6,p,blockquote,pre,a,abbr,acronym,address,big,cite,code,del,dfn,em,font,img,ins,kbd,q,s,samp,small,strike,strong,sub,sup,tt,var,b,u,i,center,dl,dt,dd,ol,ul,li,fieldset,form,label,legend,table,caption,tbody,tfoot,thead,tr,th,td{margin:0;padding:0;border:0;outline:0;font-size:100%;vertical-align:baseline;background:transparent}body{line-height:1}ol,ul{list-style:none}blockquote,q{quotes:none}blockquote:before,blockquote:after,q:before,q:after{content:'';content:none}:focus{outine:0}ins{text-decoration:none}del{text-decoration:line-through}table{border-collapse:collapse;border-spacing:0}
+
+html { min-height:100%; margin-bottom:1px; }
+html body { height:100%; margin:0px; font-family:Arial, Helvetica, sans-serif; font-size:10px; color:#000; line-height:140%; background:#fff none; overflow-y:scroll; }
+html body td { vertical-align:top; text-align:left; }
+
+h1 { padding:0px; margin:0px 0px 25px; font-family:Arial, Helvetica, sans-serif; font-size:1.5em; color:#d55000; line-height:100%; font-weight:normal; }
+h2 { padding:0px; margin:0px 0px 8px; font-family:Arial, Helvetica, sans-serif; font-size:1.2em; color:#000; font-weight:bold; line-height:140%; border-bottom:1px solid #d6d4d4; display:block; }
+h3 { padding:0px; margin:0px 0px 5px; font-family:Arial, Helvetica, sans-serif; font-size:1.1em; color:#000; font-weight:bold; line-height:140%; }
+
+a { color:#005fce; text-decoration:none; }
+a:hover { color:#005fce; text-decoration:underline; }
+a:visited { color:#004aa0; text-decoration:none; }
+
+p { padding:0px; margin:0px 0px 20px; }
+img { padding:0px; margin:0px 0px 20px; border:none; }
+p img, pre img, tt img, li img { margin-bottom:0px; } 
+
+ul { padding:0px; margin:0px 0px 20px 23px; list-style:square; }
+ul li { padding:0px; margin:0px 0px 7px 0px; }
+ul li ul { padding:5px 0px 0px; margin:0px 0px 7px 23px; }
+ul li ol li { list-style:decimal; }
+ol { padding:0px; margin:0px 0px 20px 0px; list-style:decimal; }
+ol li { padding:0px; margin:0px 0px 7px 23px; list-style-type:decimal; }
+ol li ol { padding:5px 0px 0px; margin:0px 0px 7px 0px; }
+ol li ol li { list-style-type:lower-alpha; }
+ol li ul { padding-top:7px; }
+ol li ul li { list-style:square; }
+
+.content { font-size:1.2em; line-height:140%; padding: 20px; }
+
+pre, tt, code { font-size:12px; }
+pre { margin:0px 0px 20px; }
+pre.error { color:red; }
+pre.codeinput { padding:10px; border:1px solid #d3d3d3; background:#f7f7f7; }
+pre.codeoutput { padding:10px 11px; margin:0px 0px 20px; color:#4c4c4c; }
+
+@media print { pre.codeinput, pre.codeoutput { word-wrap:break-word; width:100%; } }
+
+span.keyword { color:#0000FF }
+span.comment { color:#228B22 }
+span.string { color:#A020F0 }
+span.untermstring { color:#B20000 }
+span.syscmd { color:#B28C00 }
+
+.footer { width:auto; padding:10px 0px; margin:25px 0px 0px; border-top:1px dotted #878787; font-size:0.8em; line-height:140%; font-style:italic; color:#878787; text-align:left; float:none; }
+.footer p { margin:0px; }
+.footer a { color:#878787; }
+.footer a:hover { color:#878787; text-decoration:underline; }
+.footer a:visited { color:#878787; }
+
+table th { padding:7px 5px; text-align:left; vertical-align:middle; border: 1px solid #d6d4d4; font-weight:bold; }
+table td { padding:7px 5px; text-align:left; vertical-align:top; border:1px solid #d6d4d4; }
+
+
+
+
+
+  </style></head><body><div class="content"><pre class="codeinput"><span class="comment">%Marat Purnyn and Leonard Knittle</span>
+<span class="comment">%Section 61</span>
+<span class="comment">%Group 9</span>
+
+<span class="comment">% This function starts up and initializes GUIDE.</span>
+<span class="keyword">function</span> varargout = Section61Group9Biweekly2(varargin)
+<span class="comment">% Begin initialization code - DO NOT EDIT</span>
+gui_Singleton = 1;
+gui_State = struct(<span class="string">'gui_Name'</span>,       mfilename, <span class="keyword">...</span>
+                   <span class="string">'gui_Singleton'</span>,  gui_Singleton, <span class="keyword">...</span>
+                   <span class="string">'gui_OpeningFcn'</span>, @Section61Group9Biweekly2_OpeningFcn, <span class="keyword">...</span>
+                   <span class="string">'gui_OutputFcn'</span>,  @Section61Group9Biweekly2_OutputFcn, <span class="keyword">...</span>
+                   <span class="string">'gui_LayoutFcn'</span>,  [] , <span class="keyword">...</span>
+                   <span class="string">'gui_Callback'</span>,   []);
+<span class="keyword">if</span> nargin &amp;&amp; ischar(varargin{1})
+    gui_State.gui_Callback = str2func(varargin{1});
+<span class="keyword">end</span>
+
+<span class="keyword">if</span> nargout
+    [varargout{1:nargout}] = gui_mainfcn(gui_State, varargin{:});
+<span class="keyword">else</span>
+    gui_mainfcn(gui_State, varargin{:});
+<span class="keyword">end</span>
+
+<span class="comment">% This function runs upon starting the GUIDE figure.</span>
+<span class="keyword">function</span> Section61Group9Biweekly2_OpeningFcn(hObject, eventdata, handles, varargin)
+    <span class="comment">% Choose default command line output for Section61Group9Biweekly2</span>
+    handles.output = hObject;
+    <span class="comment">% Update handles structure</span>
+    guidata(hObject, handles);
+    <span class="comment">% starts the read accelerometer toggle button as not enabled.</span>
+    <span class="comment">% this makes it unavaialble until you've set up the accelerometer</span>
+    set(handles.togglebutton2,<span class="string">'Enable'</span>,<span class="string">'off'</span>);
+
+<span class="keyword">function</span> varargout = Section61Group9Biweekly2_OutputFcn(hObject, eventdata, handles)
+varargout{1} = handles.output;
+
+<span class="comment">%this function run on clicking the open serial communication toggle button</span>
+<span class="keyword">function</span> togglebutton1_Callback(hObject, eventdata, handles)
+    <span class="keyword">if</span>(get(hObject,<span class="string">'Value'</span>))
+        <span class="comment">% if the toggle button is being pressed</span>
+        <span class="comment">% start opening the serial connection</span>
+
+        <span class="comment">% enable the second toggle button to start reading</span>
+        <span class="comment">% from the accelerometer</span>
+        set(handles.togglebutton2,<span class="string">'Enable'</span>,<span class="string">'on'</span>);
+        <span class="comment">% edit the text so we know what unpressing the button will do.</span>
+        set(hObject,<span class="string">'String'</span>,<span class="string">'Close Serial Connection'</span>);
+        <span class="comment">% connect MATLAB to the accelerometer</span>
+
+        <span class="comment">% Specifies the COM port that the Arduino board is connected to</span>
+        <span class="comment">% by grabbing it from the textbox</span>
+        comPort = get(handles.edit1,<span class="string">'String'</span>);
+        <span class="comment">% this code sets up the serial communication</span>
+        <span class="comment">% taken from the example code</span>
+        <span class="keyword">if</span> (~exist(<span class="string">'serialFlag'</span>,<span class="string">'var'</span>))
+         [accelerometer.s,serialFlag] = setupSerial(comPort);
+        <span class="keyword">end</span>
+        <span class="comment">% this code runs the calibration routine if the serial</span>
+        <span class="comment">% communication is setup. modified from the example code.</span>
+        <span class="keyword">if</span>(~exist(<span class="string">'calCo'</span>, <span class="string">'var'</span>))
+            calCo = calibrate(accelerometer.s);
+            <span class="comment">% Puts the accelerometer and calCo variables in the handle</span>
+            <span class="comment">% so that it can be used between callback functions</span>
+            handles.accelerometer = accelerometer;
+            handles.calCo = calCo;
+            guidata(hObject,handles);
+        <span class="keyword">end</span>
+    <span class="keyword">else</span>
+        <span class="comment">% if the button is being unpressed, change the text to indicate what</span>
+        <span class="comment">% pressing it will do.</span>
+        set(handles.togglebutton2,<span class="string">'String'</span>,<span class="string">'Start Reading Accelerometer'</span>);
+        <span class="comment">% reset the status of the read accelerometer button</span>
+        set(handles.togglebutton2,<span class="string">'Value'</span>,0);
+        set(handles.togglebutton2,<span class="string">'Enable'</span>,<span class="string">'off'</span>);
+        set(hObject,<span class="string">'String'</span>,<span class="string">'Open Serial Connection'</span>);
+        <span class="comment">% finally close the serial connection using modified close serial</span>
+        <span class="comment">% code that will not close all figures.</span>
+        closeSerial();
+    <span class="keyword">end</span>
+
+<span class="comment">% this function runs when the read accelerometer button is toggled</span>
+<span class="keyword">function</span> togglebutton2_Callback(hObject, eventdata, handles)
+    <span class="keyword">if</span>(get(hObject,<span class="string">'Value'</span>))
+        <span class="comment">% if the button is being pressed, start reading from the acc.</span>
+
+        <span class="comment">%start by grabbing the accelerometer from the handle since they</span>
+        <span class="comment">%were added in another callback function.</span>
+        accelerometer = handles.accelerometer;
+        calCo = handles.calCo;
+        <span class="comment">% change the button text to reflect what unpressing it will do</span>
+        set(hObject,<span class="string">'String'</span>,<span class="string">'Stop Reading Accelerometer'</span>);
+
+        <span class="comment">%the following code is modified from wk3_vector.m &amp; wk3_magnitude.m</span>
+        buf_len = 200;
+
+        <span class="comment">% create variables for all the three axis and the resultant</span>
+        gxdata = zeros(buf_len,1);
+        gydata = zeros(buf_len,1);
+        gzdata = zeros(buf_len,1);
+        index = 1:buf_len;
+
+        <span class="comment">% Display x and y label ad title.</span>
+        xlabel(<span class="string">'Time'</span>);
+        ylabel(<span class="string">'Magnitude'</span>);
+        title(<span class="string">'Complete magnitude representation of the accelerometer sensor data'</span>);
+
+
+
+        <span class="keyword">while</span>(get(hObject,<span class="string">'Value'</span>))
+            <span class="comment">%read accelerometer output while the button is pressed down</span>
+
+            <span class="comment">%selects the figure to plot the acceleration vector data to</span>
+            axes(handles.axes3);
+            <span class="comment">%outputs the acceleration data from the readAcc function</span>
+            [gx gy gz] = readAcc(accelerometer, calCo);
+            cla;            <span class="comment">%clear everything from the current axis</span>
+            <span class="comment">%plot X and Y acceleration vectors and resultant acceleration vector</span>
+            line([0 gx], [0 0],[0 0], <span class="string">'Color'</span>, <span class="string">'r'</span>, <span class="string">'LineWidth'</span>, 2, <span class="string">'Marker'</span>, <span class="string">'o'</span>);
+            line([0 0], [0 gy],[0 0], <span class="string">'Color'</span>, <span class="string">'g'</span>, <span class="string">'LineWidth'</span>, 2, <span class="string">'Marker'</span>, <span class="string">'o'</span>);
+            line([0 0], [0 0],[0 gz], <span class="string">'Color'</span>, <span class="string">'b'</span>, <span class="string">'LineWidth'</span>, 2, <span class="string">'Marker'</span>, <span class="string">'o'</span>);
+            line([0 gx], [0 gy],[0 gz], <span class="string">'Color'</span>, <span class="string">'black'</span>, <span class="string">'LineWidth'</span>, 2, <span class="string">'Marker'</span>, <span class="string">'o'</span>);
+            <span class="comment">%limit plot to +/- 1.25 g in all directions and make axis square</span>
+            limits = 2.5;
+            axis([-limits limits -limits limits -limits limits]);
+            axis <span class="string">square</span>;
+            <span class="comment">%calculate the angle of the resultant acceleration vector and print</span>
+            theta = atand(gy/gx);
+            <span class="comment">%edit the text in GUIDE so that it shows the angle of the</span>
+            <span class="comment">%resultant vector.</span>
+            set(handles.text5,<span class="string">'String'</span>, num2str(theta, <span class="string">'%.0f'</span>));
+
+
+            <span class="comment">% from wk3_magnitude</span>
+            <span class="comment">% Append the new reading to the end of the rolling plot data. Drop the</span>
+            <span class="comment">% first value</span>
+            gxdata = [gxdata(2:end) ; gx];
+            gydata = [gydata(2:end) ; gy];
+            gzdata = [gzdata(2:end) ; gz];
+            gmdata = gxdata+gydata+gzdata;
+            <span class="comment">% Update the rolling plot</span>
+
+            <span class="comment">% plot for resultant maginitude</span>
+            axes(handles.axes1); <span class="comment">%selects the axes in GUIDE to plot to</span>
+            plot(index,gmdata,<span class="string">'black'</span>);
+            axis([1 buf_len -3.5 3.5]);
+            xlabel(<span class="string">'time'</span>);
+            ylabel(<span class="string">'Magnitude of the resultant acceleration'</span>);
+
+            <span class="comment">% plot for x y z magnitude</span>
+            axes(handles.axes2); <span class="comment">%selects the axes in GUIDE to plot to</span>
+            plot(index,gxdata,<span class="string">'r'</span>, index,gydata,<span class="string">'g'</span>, index,gzdata,<span class="string">'b'</span>);
+            axis([1 buf_len -3.5 3.5]);
+            xlabel(<span class="string">'time'</span>);
+            ylabel(<span class="string">'Magnitude of individual axes acceleration'</span>);
+            <span class="comment">%adds a legend, but it lags it to much,</span>
+            <span class="comment">%so I added it in the .fig</span>
+            <span class="comment">%legend('X','Y','Z','Location','BestOutside');</span>
+
+
+            <span class="comment">%force MATLAB to redraw the figure</span>
+            drawnow;
+        <span class="keyword">end</span>
+    <span class="keyword">else</span>
+        <span class="comment">%if the button is unpressed, reset the text.</span>
+        set(hObject,<span class="string">'String'</span>,<span class="string">'Start Reading Accelerometer'</span>);
+    <span class="keyword">end</span>
+
+<span class="comment">%function that executes when the text is changed in the com port textbox</span>
+<span class="keyword">function</span> edit1_Callback(hObject, eventdata, handles)
+
+<span class="keyword">function</span> edit1_CreateFcn(hObject, eventdata, handles)
+    <span class="keyword">if</span> ispc &amp;&amp; isequal(get(hObject,<span class="string">'BackgroundColor'</span>), get(0,<span class="string">'defaultUicontrolBackgroundColor'</span>))
+        set(hObject,<span class="string">'BackgroundColor'</span>,<span class="string">'white'</span>);
+    <span class="keyword">end</span>
+</pre><img vspace="5" hspace="5" src="Section61Group9Biweekly2_01.png" alt=""> <p class="footer"><br><a href="http://www.mathworks.com/products/matlab/">Published with MATLAB&reg; R2013a</a><br></p></div><!--
+##### SOURCE BEGIN #####
+%Marat Purnyn and Leonard Knittle
+%Section 61
+%Group 9
+
+% This function starts up and initializes GUIDE.
+function varargout = Section61Group9Biweekly2(varargin)
+% Begin initialization code - DO NOT EDIT
+gui_Singleton = 1;
+gui_State = struct('gui_Name',       mfilename, ...
+                   'gui_Singleton',  gui_Singleton, ...
+                   'gui_OpeningFcn', @Section61Group9Biweekly2_OpeningFcn, ...
+                   'gui_OutputFcn',  @Section61Group9Biweekly2_OutputFcn, ...
+                   'gui_LayoutFcn',  [] , ...
+                   'gui_Callback',   []);
+if nargin && ischar(varargin{1})
+    gui_State.gui_Callback = str2func(varargin{1});
+end
+
+if nargout
+    [varargout{1:nargout}] = gui_mainfcn(gui_State, varargin{:});
+else
+    gui_mainfcn(gui_State, varargin{:});
+end
+
+% This function runs upon starting the GUIDE figure.  
+function Section61Group9Biweekly2_OpeningFcn(hObject, eventdata, handles, varargin)
+    % Choose default command line output for Section61Group9Biweekly2
+    handles.output = hObject;
+    % Update handles structure
+    guidata(hObject, handles);
+    % starts the read accelerometer toggle button as not enabled.
+    % this makes it unavaialble until you've set up the accelerometer 
+    set(handles.togglebutton2,'Enable','off'); 
+    
+function varargout = Section61Group9Biweekly2_OutputFcn(hObject, eventdata, handles) 
+varargout{1} = handles.output;
+
+%this function run on clicking the open serial communication toggle button
+function togglebutton1_Callback(hObject, eventdata, handles)
+    if(get(hObject,'Value'))
+        % if the toggle button is being pressed
+        % start opening the serial connection
+        
+        % enable the second toggle button to start reading
+        % from the accelerometer
+        set(handles.togglebutton2,'Enable','on');
+        % edit the text so we know what unpressing the button will do.
+        set(hObject,'String','Close Serial Connection');
+        % connect MATLAB to the accelerometer
+        
+        % Specifies the COM port that the Arduino board is connected to
+        % by grabbing it from the textbox
+        comPort = get(handles.edit1,'String');  
+        % this code sets up the serial communication
+        % taken from the example code
+        if (~exist('serialFlag','var'))
+         [accelerometer.s,serialFlag] = setupSerial(comPort);
+        end
+        % this code runs the calibration routine if the serial
+        % communication is setup. modified from the example code.
+        if(~exist('calCo', 'var'))
+            calCo = calibrate(accelerometer.s);
+            % Puts the accelerometer and calCo variables in the handle 
+            % so that it can be used between callback functions 
+            handles.accelerometer = accelerometer;
+            handles.calCo = calCo;
+            guidata(hObject,handles);
+        end
+    else
+        % if the button is being unpressed, change the text to indicate what
+        % pressing it will do.
+        set(handles.togglebutton2,'String','Start Reading Accelerometer');
+        % reset the status of the read accelerometer button
+        set(handles.togglebutton2,'Value',0);
+        set(handles.togglebutton2,'Enable','off');
+        set(hObject,'String','Open Serial Connection');
+        % finally close the serial connection using modified close serial
+        % code that will not close all figures.
+        closeSerial();
+    end
+    
+% this function runs when the read accelerometer button is toggled    
+function togglebutton2_Callback(hObject, eventdata, handles)
+    if(get(hObject,'Value'))
+        % if the button is being pressed, start reading from the acc.
+        
+        %start by grabbing the accelerometer from the handle since they
+        %were added in another callback function.
+        accelerometer = handles.accelerometer;
+        calCo = handles.calCo;
+        % change the button text to reflect what unpressing it will do
+        set(hObject,'String','Stop Reading Accelerometer');
+        
+        %the following code is modified from wk3_vector.m & wk3_magnitude.m
+        buf_len = 200;
+        
+        % create variables for all the three axis and the resultant 
+        gxdata = zeros(buf_len,1);
+        gydata = zeros(buf_len,1);
+        gzdata = zeros(buf_len,1);
+        index = 1:buf_len;
+
+        % Display x and y label ad title.
+        xlabel('Time');
+        ylabel('Magnitude');
+        title('Complete magnitude representation of the accelerometer sensor data');
+
+        
+        
+        while(get(hObject,'Value'))
+            %read accelerometer output while the button is pressed down
+            
+            %selects the figure to plot the acceleration vector data to
+            axes(handles.axes3);
+            %outputs the acceleration data from the readAcc function
+            [gx gy gz] = readAcc(accelerometer, calCo);
+            cla;            %clear everything from the current axis
+            %plot X and Y acceleration vectors and resultant acceleration vector
+            line([0 gx], [0 0],[0 0], 'Color', 'r', 'LineWidth', 2, 'Marker', 'o');
+            line([0 0], [0 gy],[0 0], 'Color', 'g', 'LineWidth', 2, 'Marker', 'o');
+            line([0 0], [0 0],[0 gz], 'Color', 'b', 'LineWidth', 2, 'Marker', 'o');
+            line([0 gx], [0 gy],[0 gz], 'Color', 'black', 'LineWidth', 2, 'Marker', 'o');
+            %limit plot to +/- 1.25 g in all directions and make axis square
+            limits = 2.5;
+            axis([-limits limits -limits limits -limits limits]);
+            axis square;
+            %calculate the angle of the resultant acceleration vector and print
+            theta = atand(gy/gx);
+            %edit the text in GUIDE so that it shows the angle of the
+            %resultant vector.
+            set(handles.text5,'String', num2str(theta, '%.0f')); 
+            
+
+            % from wk3_magnitude
+            % Append the new reading to the end of the rolling plot data. Drop the
+            % first value
+            gxdata = [gxdata(2:end) ; gx];
+            gydata = [gydata(2:end) ; gy];
+            gzdata = [gzdata(2:end) ; gz];    
+            gmdata = gxdata+gydata+gzdata;
+            % Update the rolling plot
+
+            % plot for resultant maginitude
+            axes(handles.axes1); %selects the axes in GUIDE to plot to
+            plot(index,gmdata,'black');
+            axis([1 buf_len -3.5 3.5]);  
+            xlabel('time');
+            ylabel('Magnitude of the resultant acceleration');
+
+            % plot for x y z magnitude
+            axes(handles.axes2); %selects the axes in GUIDE to plot to
+            plot(index,gxdata,'r', index,gydata,'g', index,gzdata,'b');
+            axis([1 buf_len -3.5 3.5]);  
+            xlabel('time');
+            ylabel('Magnitude of individual axes acceleration');
+            %adds a legend, but it lags it to much, 
+            %so I added it in the .fig
+            %legend('X','Y','Z','Location','BestOutside'); 
+
+            
+            %force MATLAB to redraw the figure
+            drawnow;
+        end
+    else
+        %if the button is unpressed, reset the text.
+        set(hObject,'String','Start Reading Accelerometer');
+    end
+    
+%function that executes when the text is changed in the com port textbox
+function edit1_Callback(hObject, eventdata, handles)
+
+function edit1_CreateFcn(hObject, eventdata, handles)
+    if ispc && isequal(get(hObject,'BackgroundColor'), get(0,'defaultUicontrolBackgroundColor'))
+        set(hObject,'BackgroundColor','white');
+    end
+
+##### SOURCE END #####
+--></body></html>
