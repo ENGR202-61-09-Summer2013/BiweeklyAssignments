@@ -102,6 +102,7 @@ function togglebutton2_Callback(hObject, eventdata, handles)
         gxdata = zeros(buf_len,1);
         gydata = zeros(buf_len,1);
         gzdata = zeros(buf_len,1);
+        thresholdData = ones(buf_len,1);
         % create a fixed length empty array for each axis's filtere data
         gxdataFiltered = zeros(buf_len,1);
         gydataFiltered = zeros(buf_len,1);
@@ -127,6 +128,8 @@ function togglebutton2_Callback(hObject, eventdata, handles)
             else
                 timePeriod = 0;
             end
+            
+            
             %selects the figure to plot the acceleration vector data to
             axes(handles.axes3);
             grid on; %turns on the grid for the graph
@@ -161,6 +164,7 @@ function togglebutton2_Callback(hObject, eventdata, handles)
             gxdata = [gxdata(2:end) ; gx];
             gydata = [gydata(2:end) ; gy];
             gzdata = [gzdata(2:end) ; gz];    
+            % thresholdData = get(handles.slider4,'Value')*thresholdData;
             gmdata = sqrt(gxdata.^2+gydata.^2+gzdata.^2);
             % if the alpha filter is on
             if(get(handles.togglebutton3,'Value'))
@@ -193,7 +197,7 @@ function togglebutton2_Callback(hObject, eventdata, handles)
             
             % plot for resultant maginitude
             axes(handles.axes1); %selects the axes in GUIDE to plot to
-            plot(index,gxdata,'r', index,gydata,'g', index,gzdata,'b');
+            plot(index,gxdata,'r', index,gydata,'g', index,gzdata,'b',index,thresholdData,':k');
             axis([1 buf_len -3.5 3.5]);  
             xlabel('time');
             ylabel('Magnitude of the resultant acceleration');
