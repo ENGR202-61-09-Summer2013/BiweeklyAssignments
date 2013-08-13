@@ -103,7 +103,7 @@ function togglebutton2_Callback(hObject, eventdata, handles)
         gydata = zeros(buf_len,1);
         gzdata = zeros(buf_len,1);
         thresholdData = ones(buf_len,1);
-        timeData = zeros(buf_len,1);
+        timeData = zeroes(buf_len,1);
         % create a fixed length empty array for each axis's filtere data
         gxdataFiltered = zeros(buf_len,1);
         gydataFiltered = zeros(buf_len,1);
@@ -147,7 +147,7 @@ function togglebutton2_Callback(hObject, eventdata, handles)
             grid on; %turns on the grid for the graph
             %outputs the acceleration data from the readAcc function
             [gx gy gz] = readAcc(accelerometer, calCo);
-            timeData = [timeData(2:end); toc];
+            timeData = timeData(2:end);
             
             cla;            %clear everything from the current axis
             %plot X and Y acceleration vectors and resultant acceleration vector
@@ -246,10 +246,10 @@ function togglebutton2_Callback(hObject, eventdata, handles)
 
            % plot for x y z magnitude
             axes(handles.axes4); %selects the axes in GUIDE to plot to
-            gxVData = cumtrapz(timeData,gxdata);
-            gyVData = cumtrapz(timeData,gydata);
-            plot(timeData,gxVData,'r', timeData,gyVData,'g');
-            xlim([timeData(1) timeData(end)]);  
+            gxVData = cumtrapz(gxdata);
+            gyVData = cumtrapz(gydata);
+            plot(index,gxVData,'r', index,gyVData,'g');
+            axis([1 buf_len -3.5 3.5]);  
             xlabel('time');
             ylabel('Velocity');
             grid on;
