@@ -179,21 +179,7 @@ function tbReadAcc_Callback(hObject, eventdata, handles)
                 mouseDX = 0;
             end
             
-            axes(handles.MousePlot);
-            cla;
-            grid on;
-            if(gz > 1.5)
-                line([0 mouseX/100], [0 mouseY/100],'LineStyle', 'none', 'Color', 'red', 'LineWidth', 1, 'Marker', 'o');
-            else
-                line([0 mouseX/100], [0 mouseY/100],'LineStyle', 'none', 'Color', 'black', 'LineWidth', 1, 'Marker', 'o');
-            end
-            
-            limits = 2;
-            axis([-limits limits -limits limits]);
-            axis square;
-            
-            
-            if(get(handles.tbMouse,'Value') == 1)
+            if(get(handles.tbMouse,'Value'))
                 if(mouseDX~=0)
                     cursorX = cursorX + mouseDX/abs(mouseDX)*abs(mouseDX)^1.5;
                 end
@@ -217,12 +203,27 @@ function tbReadAcc_Callback(hObject, eventdata, handles)
                 if(gz > 1.5)
                     %clicks left mouse button
                     mouse.mousePress(16); 
-                else
+                elseif(gz<1.5)
                     mouse.mouseRelease(16);
                 end
             end
+            
+            axes(handles.MousePlot);
+            cla;
+            grid on;
+            if(gz > 1.5)
+                line([0 mouseX/100], [0 mouseY/100],'LineStyle', 'none', 'Color', 'red', 'LineWidth', 1, 'Marker', 'o');
+            elseif(abs(gz)<1.5)
+                line([0 mouseX/100], [0 mouseY/100],'LineStyle', 'none', 'Color', 'black', 'LineWidth', 1, 'Marker', 'o');
+            elseif(gz<-1.5)
+                line([0 mouseX/100], [0 mouseY/100],'LineStyle', 'none', 'Color', 'green', 'LineWidth', 1, 'Marker', 'o');
+            end
+
+            limits = 2;
+            axis([-limits limits -limits limits]);
+            axis square;
         end
-    else
+    elseif(~get(hObject,'Value'))
         %if the button is unpressed, reset the text.
         set(hObject,'String','Start Reading Accelerometer');
     end
@@ -283,9 +284,15 @@ function tbSerial_Callback(hObject, eventdata, handles)
 function tbMouse_Callback(hObject, eventdata, handles)
     if(get(hObject,'Value'))
         set(hObject,'String','Stop Controling Windows Pointer');
-    else
+    elseif(~get(hObject,'Value'))
         set(hObject,'String','Start Controling Windows Pointer');
     end
 
 function bCalibrateAcc_Callback(hObject, eventdata, handles)
+accelerometer = handles.accelerometer;
+if(~exist('calCo', 'var'))
+    calCo = calibrate(accelerometer.s);
+    handles.calCo = calCo;
+    guidata(hObject,handles);
+end
 
