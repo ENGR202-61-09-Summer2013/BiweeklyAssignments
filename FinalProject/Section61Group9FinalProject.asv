@@ -165,18 +165,13 @@ function tbReadAcc_Callback(hObject, eventdata, handles)
             elseif(gyFiltered < -0.5)
                 mouseY = mouseY+(10*abs(gyFiltered)-4);
                 mouseDY = (10*abs(gyFiltered)-4);
-            else
-                mouseDY = 0;
             end
-            
             if(gxFiltered > 0.5)
                 mouseX = mouseX-(10*abs(gxFiltered)-4);
-                mouseDX = -(10*abs(gxFiltered)-4);
+                mouseDX = -(10*abs(gyFiltered)-4);
             elseif(gxFiltered < -0.5)
                 mouseX = mouseX+(10*abs(gxFiltered)-4);
-                mouseDX = (10*abs(gxFiltered)-4);
-            else
-                mouseDX = 0;
+                mouseDX = (10*abs(gyFiltered)-4);
             end
             
             axes(handles.MousePlot);
@@ -192,14 +187,12 @@ function tbReadAcc_Callback(hObject, eventdata, handles)
             axis([-limits limits -limits limits]);
             axis square;
             
+
+            
             
             if(get(handles.tbMouse,'Value') == 1)
-                if(mouseDX~=0)
-                    cursorX = cursorX + mouseDX/abs(mouseDX)*abs(mouseDX)^1.5;
-                end
-                if(mouseDY~=0)
-                    cursorY = cursorY - mouseDY/abs(mouseDY)*abs(mouseDY)^1.5;
-                end
+                cursorX = cursorX + mouseDX;
+                cursorY = cursorY - mouseDX;
                 
                 if(cursorX<0)
                     cursorX = 0;
